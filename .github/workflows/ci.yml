@@ -21,14 +21,7 @@ jobs:
 
       - run: npm install
 
-      - run: npm run build
-
       - run: npm test
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: app
-          path: dist/
 
   docker:
 
@@ -39,10 +32,6 @@ jobs:
     steps:
 
       - uses: actions/checkout@v4
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: app
 
       - uses: docker/login-action@v3
         with:
